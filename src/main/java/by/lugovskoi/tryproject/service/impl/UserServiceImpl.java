@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
         userToUpdate.setPassword(user.getPassword());
         userToUpdate.setRole(user.getRole());
         userToUpdate.setStatus(user.getStatus());
-        save(userToUpdate);
+        userRepository.save(userToUpdate);
     }
 
     @Override
@@ -65,5 +65,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User doesn't exists"));
+    }
+
+    @Override
+    public void toAdmin(Long id) {
+       User user = findById(id);
+       user.setRole(Role.ADMIN);
+       userRepository.save(user);
+    }
+
+    @Override
+    public void toUser(Long id) {
+        User user = findById(id);
+        user.setRole(Role.USER);
+        userRepository.save(user);
     }
 }

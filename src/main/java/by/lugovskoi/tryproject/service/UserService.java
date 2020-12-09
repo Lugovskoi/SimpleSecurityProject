@@ -6,15 +6,19 @@ import java.util.Set;
 
 public interface UserService {
 
-    public void save(User user);
+    void save(User user);
 
-    public User findById(Long id);
+    User findById(Long id);
 
-    public Set<User> findAll();
+    Set<User> findAll();
 
-    public void update(Long id, User user);
+    void update(Long id, User user);
 
-    public void delete(Long id);
+    void delete(Long id);
 
-    public User findByEmail(String email);
+    User findByEmail(String email);
+
+    void toAdmin(Long id);
+
+    void toUser(Long id);
 }
