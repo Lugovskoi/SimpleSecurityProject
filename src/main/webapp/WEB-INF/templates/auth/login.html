@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login custom</title>
+</head>
+    <body>
+    <form th:action="@{/auth/login}" method="post">
+        <h3>Login</h3>
+        <p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </p>
+        <button type="submit">Sign in</button>
+    </form>
+    <p><a th:href="@{/auth/registration.html}">registration</a></p>
+    </body>
+</html>

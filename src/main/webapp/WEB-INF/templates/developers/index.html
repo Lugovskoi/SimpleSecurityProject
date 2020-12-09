@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Developers</title>
+</head>
+<body>
+<div th:each="developer : ${developers}">
+    <span th:text="${developer.id}"></span><span>)</span>
+    <span th:text="${developer.firstName}"></span>
+    <span th:text="${developer.lastName}"></span>
+    <a th:href="@{/developers/{id}/edit(id=${developer.id})}">edit</a>
+    <a th:href="@{/developers/{id}/delete(id=${developer.id})}">delete</a>
+</div>
+<hr/>
+<a th:href="@{/developers/new}">Save new developer</a>
+</body>
+</html>
